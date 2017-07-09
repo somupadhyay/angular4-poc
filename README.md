@@ -38,6 +38,6 @@ Run `mvn spring-boot:run` for a dev server. Navigate to `http://localhost:8080/`
 
 ## Build
 
-Run `mvn clean package` to build the project. The build artifacts will be stored in the `target/` directory. 
+Run `mvn clean package` to build the project. The build artifacts will be stored in the `/target` directory. 
 
 =======

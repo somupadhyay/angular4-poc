@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # BasicForm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
@@ -28,5 +27,17 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =======
-# angular4-poc
->>>>>>> f7c03dec16add594ead1c579523e3386e8d56542
+
+# ErrorRedirect
+
+This project is built using Spring Tool Suit, its an spring boot application
+
+## Development server
+
+Run `mvn spring-boot:run` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+
+## Build
+
+Run `mvn clean package` to build the project. The build artifacts will be stored in the `target/` directory. 
+
+=======

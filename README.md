@@ -28,6 +28,8 @@ Before running the tests make sure you are serving the app via `ng serve`.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =======
 
+
+
 # ErrorRedirect
 
 This project is built using Spring Tool Suit, its an spring boot application
@@ -40,4 +42,3 @@ Run `mvn spring-boot:run` for a dev server. Navigate to `http://localhost:8080/`
 
 Run `mvn clean package` to build the project. The build artifacts will be stored in the `/target` directory. 
 
-=======

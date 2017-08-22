@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * @author upadhs5
@@ -16,9 +17,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DBConfiguration {
 
-	@Bean(name = "targetDataSource")
-	public DataSource targetDataSource() {
-		return DataSourceBuilder.create().driverClassName("org.hsqldb.jdbcDriver").password("").username("sa").url("jdbc:hsqldb:file:apids;shutdown=true").build();
+	@Primary
+	@Bean(name = "dataSource")
+	public DataSource dataSource() {
+		return DataSourceBuilder.create().driverClassName("com.mysql.jdbc.Driver").password("root").username("root").url("jdbc:mysql://localhost:3306/test2").build();
 	}
 
 	@Bean(name = "sourceDataSource")

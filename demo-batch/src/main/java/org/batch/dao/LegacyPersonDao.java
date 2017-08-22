@@ -34,21 +34,37 @@ public class LegacyPersonDao {
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-	public List<Person> getPersonNotIn(List<Long> ids) {
+	public List<Person> getPersonNotIn(List<Integer> ids) {
 		MapSqlParameterSource parameters = new MapSqlParameterSource();
 		parameters.addValue("ids", ids);
 		List<Person> persons = new ArrayList<Person>();
-		return namedParameterJdbcTemplate.query("select idpeople, first_name, last_name from people where idpeople not in (:ids)", parameters,
-				(ResultSet rs) -> {
-					while (rs.next()) {
-						Person person = new Person();
-						person.setPersonid(rs.getInt("idpeople"));
-						person.setFirstName(rs.getString("first_name"));
-						person.setLastName(rs.getString("last_name"));
+		if (null != ids && ids.size() > 0) {
+			return namedParameterJdbcTemplate.query(
+					"select idpeople, first_name, last_name from people where idpeople not in (:ids)", parameters,
+					(ResultSet rs) -> {
+						while (rs.next()) {
+							Person person = new Person();
+							person.setPersonid(rs.getInt("idpeople"));
+							person.setFirstName(rs.getString("first_name"));
+							person.setLastName(rs.getString("last_name"));
 
-						persons.add(person);
-					}
-					return persons;
-				});
+							persons.add(person);
+						}
+						return persons;
+					});
+		} else {
+			List<Person> _persons = new ArrayList<>();
+			namedParameterJdbcTemplate.query("select idpeople, first_name, last_name from people", (ResultSet rs) -> {
+				while (rs.next()) {
+					Person person = new Person();
+					person.setPersonid(rs.getInt("idpeople"));
+					person.setFirstName(rs.getString("first_name"));
+					person.setLastName(rs.getString("last_name"));
+
+					_persons.add(person);
+				}
+			});
+			return _persons;
+		}
 	}
 }

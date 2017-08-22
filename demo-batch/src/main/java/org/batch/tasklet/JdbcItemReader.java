@@ -30,7 +30,7 @@ public class JdbcItemReader implements ItemReader<Persons> {
 
 	@Override
 	public Persons read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-		List<Long> ids = nPersonDao.getIds();
+		List<Integer> ids = nPersonDao.getIds();
 		Persons persons = new Persons();
 		persons.setPersons(this.lPersonDao.getPersonNotIn(ids));
 		return persons;
